@@ -32,7 +32,7 @@ class Figure:
 
 class Triangle(Figure):
 
-    def __init__(self, a, b, c):
+    def __init__(self, a, b, c: float):
 
         if not all(type(i) == float for i in (a,b,c)) and not all(type(i) == int for i in (a,b,c)):
             TypeError("Координаты должны быть числом")
@@ -54,8 +54,7 @@ class Triangle(Figure):
         return 2 * self.area() == r[0] * r[1]
 
 class Circle(Figure):
-    """  """
-    def __init__(self, rad: float|int):
+    def __init__(self, rad: float | int):
         if type(rad) not in (float, int):
             raise TypeError("Радиус должен быть числом")
         if rad < 0:
@@ -64,4 +63,3 @@ class Circle(Figure):
 
     def area(self) -> float:
         return pi*(self.rad**2)
-f = Figure(("1",1), (1,2))
