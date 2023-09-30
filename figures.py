@@ -34,8 +34,8 @@ class Triangle(Figure):
 
     def __init__(self, a, b, c: float):
 
-        if not all(type(i) == float for i in (a,b,c)) and not all(type(i) == int for i in (a,b,c)):
-            TypeError("Координаты должны быть числом")
+        if not all(type(i) in (float, int) for i in (a, b, c)):
+            raise TypeError("Координаты должны быть числом")
 
         r = sorted([a, b, c])
         if r[2] >= r[0] + r[1]:
